@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 import org.json.JSONObject;
 
-import com.raghu.apilistener.dto.StockDetails;
-import com.raghu.apilistener.model.StockDto;
-
 public class StockPriceDao {
 
 	// TODO: Remove this method

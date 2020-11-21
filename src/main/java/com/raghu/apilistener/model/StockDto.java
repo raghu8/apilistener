@@ -3,6 +3,9 @@ package com.raghu.apilistener.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class StockDto implements Serializable {
 	private static final long serialVersionUID = -6559704449944572769L;
 	private ArrayList<String> stock;
