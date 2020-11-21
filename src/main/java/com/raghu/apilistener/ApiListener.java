@@ -1,0 +1,20 @@
+package com.raghu.apilistener;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.raghu.apilistener.stockticker.csvfilecreator.CsvFileGenerator;
+import com.raghu.apilistener.stockticker.endpointlistener.ReadAlphaAdvantageApi;
+
+@SpringBootApplication
+public class ApiListener {
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(ApiListener.class, args);
+		ReadAlphaAdvantageApi stockPrices = new ReadAlphaAdvantageApi();
+		CsvFileGenerator createExcel = new CsvFileGenerator();
+		createExcel.createCsv("AAPL", "NFLX", "AMZN");
+		context.close();
+	}
+
+}
