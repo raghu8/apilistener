@@ -1,4 +1,4 @@
-package com.raghu.stockticker;
+package com.raghu.apilistener;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

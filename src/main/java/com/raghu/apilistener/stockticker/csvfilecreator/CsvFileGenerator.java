@@ -1,4 +1,4 @@
-package com.raghu.stockticker.csvfilecreator;
+package com.raghu.apilistener.stockticker.csvfilecreator;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import com.raghu.stockticker.endpointlistener.ReadAlphaAdvantageApi;
+import com.raghu.apilistener.stockticker.endpointlistener.ReadAlphaAdvantageApi;
 
 public class CsvFileGenerator {
 	public void createCsv(String stockOne, String stockTwo, String stockThree) {

@@ -1,4 +1,4 @@
-package com.raghu.stockticker.endpointlistener;
+package com.raghu.apilistener.stockticker.endpointlistener;
 
 import java.util.ArrayList;
 

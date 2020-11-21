@@ -1,4 +1,4 @@
-package com.raghu.stockticker.controller;
+package com.raghu.apilistener.stockticker.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
