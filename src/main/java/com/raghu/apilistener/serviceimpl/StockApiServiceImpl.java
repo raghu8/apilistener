@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.raghu.apilistener.model.StockPrice;
-import com.raghu.apilistener.stockticker.dao.ReadAlphaAdvantageApi;
+import com.raghu.apilistener.stockticker.dao.StockApiDao;
 
 @Service
 public class StockApiServiceImpl {

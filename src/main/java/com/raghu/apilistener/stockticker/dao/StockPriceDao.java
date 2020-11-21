@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 import org.json.JSONObject;
 
-import com.raghu.apilistener.model.Stock;
+import com.raghu.apilistener.dto.StockDetails;
+import com.raghu.apilistener.model.StockDto;
 
 public class StockPriceDao {
-	
-	//TODO: Remove this method
-	public String stockAndPrice(StringBuffer responseContent) {
+
+	// TODO: Remove this method
+	public Double latestStockPrice(StringBuffer responseContent) {
 		JSONObject object = new JSONObject(responseContent.toString());
 		String[] jsonKeys = JSONObject.getNames(object);
 		ArrayList<String> metaData = new ArrayList<String>();
@@ -17,35 +18,18 @@ public class StockPriceDao {
 			Object value = object.get(key);
 			metaData.add(value.toString());
 		}
-		// Testing commit
+
 		JSONObject metadataObject = new JSONObject(metaData.get(1));
 
-		String symbol = metadataObject.getString(jsonIterator(1, metadataObject));
+		//String symbol = metadataObject.getString(jsonIterator(1, metadataObject));
 		String date = metadataObject.getString(jsonIterator(4, metadataObject));
 
 		JSONObject timeseriesObject = new JSONObject(metaData.get(0));
 		jsonIterator(0, timeseriesObject);
 		JSONObject lastRefreshed = timeseriesObject.getJSONObject(date);
-		String price = lastRefreshed.getString(jsonIterator(4, timeseriesObject.getJSONObject(date)));
+		Double price = lastRefreshed.getDouble((jsonIterator(4, timeseriesObject.getJSONObject(date))));
 
-		return symbol + "," + price;
-	}
-
-	public Stock stockValue(StringBuffer responseContent, String symbol, Double price) {
-		JSONObject object = new JSONObject(responseContent.toString());
-		String[] jsonKeys = JSONObject.getNames(object);
-		ArrayList<String> metaData = new ArrayList<String>();
-		for (String key : jsonKeys) {
-			Object value = object.get(key);
-			metaData.add(value.toString());
-		}
-		// Testing commit
-		JSONObject metadataObject = new JSONObject(metaData.get(1));
-
-		symbol = metadataObject.getString(jsonIterator(1, metadataObject));
-		Stock stock = new Stock();
-		stock.getStock().add(symbol);
-		return stock;
+		return price;
 	}
 
 	public String jsonIterator(int itemNumber, JSONObject jsonObject) {
