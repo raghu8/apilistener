@@ -12,8 +12,9 @@ public class ApiListener {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(ApiListener.class, args);
 		ReadAlphaAdvantageApi stockPrices = new ReadAlphaAdvantageApi();
-		CsvFileGenerator createExcel = new CsvFileGenerator();
-		createExcel.createCsv("AAPL", "NFLX", "AMZN");
+		System.out.println(stockPrices.retrivingStockPrices("AAPL"));
+//		CsvFileGenerator createExcel = new CsvFileGenerator();
+//		createExcel.createCsv("AAPL", "NFLX", "AMZN");
 		context.close();
 	}
 
