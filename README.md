@@ -1,2 +1,1 @@
-# stockticker
 # apilistener
