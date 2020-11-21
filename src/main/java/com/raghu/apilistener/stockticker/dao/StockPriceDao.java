@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 import org.json.JSONObject;
 
-public class JsonProcessor {
+import com.raghu.apilistener.model.Stock;
+
+public class StockPriceDao {
+	
+	//TODO: Remove this method
 	public String stockAndPrice(StringBuffer responseContent) {
 		JSONObject object = new JSONObject(responseContent.toString());
 		String[] jsonKeys = JSONObject.getNames(object);
@@ -25,6 +29,23 @@ public class JsonProcessor {
 		String price = lastRefreshed.getString(jsonIterator(4, timeseriesObject.getJSONObject(date)));
 
 		return symbol + "," + price;
+	}
+
+	public Stock stockValue(StringBuffer responseContent, String symbol, Double price) {
+		JSONObject object = new JSONObject(responseContent.toString());
+		String[] jsonKeys = JSONObject.getNames(object);
+		ArrayList<String> metaData = new ArrayList<String>();
+		for (String key : jsonKeys) {
+			Object value = object.get(key);
+			metaData.add(value.toString());
+		}
+		// Testing commit
+		JSONObject metadataObject = new JSONObject(metaData.get(1));
+
+		symbol = metadataObject.getString(jsonIterator(1, metadataObject));
+		Stock stock = new Stock();
+		stock.getStock().add(symbol);
+		return stock;
 	}
 
 	public String jsonIterator(int itemNumber, JSONObject jsonObject) {

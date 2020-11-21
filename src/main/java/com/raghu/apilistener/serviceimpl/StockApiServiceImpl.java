@@ -9,14 +9,10 @@ import com.raghu.apilistener.model.StockPrice;
 import com.raghu.apilistener.stockticker.dao.ReadAlphaAdvantageApi;
 
 @Service
-public class StockApiService {
+public class StockApiServiceImpl {
 
 	@Autowired
 	private StockPrice price;
 
-	public StockPrice stockPrice() {
-		ReadAlphaAdvantageApi retrivedStockPrice = new ReadAlphaAdvantageApi();
-		HashMap<String, Double> stockPrice = new HashMap<String, Double>();
-		return null;
-	}
+	
 }

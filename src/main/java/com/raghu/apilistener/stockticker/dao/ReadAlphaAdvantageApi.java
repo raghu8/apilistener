@@ -42,7 +42,7 @@ public class ReadAlphaAdvantageApi {
 				reader.close();
 			}
 
-			JsonProcessor stockPrice = new JsonProcessor();
+			StockPriceDao stockPrice = new StockPriceDao();
 			System.out.println();
 			return stockPrice.stockAndPrice(responseContent);
 
