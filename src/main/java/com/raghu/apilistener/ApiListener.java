@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.raghu.apilistener.stockticker.csvfilecreator.CsvFileGenerator;
-import com.raghu.apilistener.stockticker.endpointlistener.ReadAlphaAdvantageApi;
+import com.raghu.apilistener.stockticker.dao.ReadAlphaAdvantageApi;
 
 @SpringBootApplication
 public class ApiListener {

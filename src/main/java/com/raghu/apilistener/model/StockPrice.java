@@ -1,7 +1,9 @@
 package com.raghu.apilistener.model;
 
 import java.util.HashMap;
+import org.springframework.stereotype.Component;
 
+@Component
 public class StockPrice {
 	private HashMap<String, Double> price;
 

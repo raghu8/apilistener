@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import com.raghu.apilistener.stockticker.endpointlistener.ReadAlphaAdvantageApi;
+import com.raghu.apilistener.stockticker.dao.ReadAlphaAdvantageApi;
 
 public class CsvFileGenerator {
 	public void createCsv(String stockOne, String stockTwo, String stockThree) {
