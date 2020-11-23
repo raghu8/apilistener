@@ -24,7 +24,7 @@ public class StockPriceController {
 
 
 	@GetMapping(value = "/price", consumes = "application/json", produces = "application/json")
-	public ArrayList<ListStocks> stockPrice(@RequestBody StockDto stockName) {
+	public HashMap<String, Double> stockPrice(@RequestBody StockDto stockName) {
 
 		System.out.println(stockName.getStock());
 		StockApiDao stockAndPrice = new StockApiDao();
@@ -32,6 +32,6 @@ public class StockPriceController {
 		storkApiService.stockPrice(stockName.getStock()).getPrice();
 		System.out.println("Failure point? "+storkApiService.stockPrice(stockName.getStock()).getPrice());
 		
-		return null;
+		return storkApiService.stockPrice(stockName.getStock()).getPrice();
 	}
 }

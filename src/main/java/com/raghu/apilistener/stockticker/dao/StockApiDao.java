@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
 import com.raghu.apilistener.model.ListStocks;
-import com.raghu.apilistener.model.StockDto;
 import com.raghu.apilistener.model.StockPrice;
 
 @Repository
