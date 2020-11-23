@@ -24,13 +24,12 @@ public class StockApiDao {
 		return stockPrice.latestStockPrice(response);
 	}
 
-	public StockPrice stockAndPrice(ArrayList<String> stockSymbols) {
+	public ListStocks stockAndPrice(ArrayList<String> stockSymbols) {
 		StringBuffer response = new StringBuffer();
 		RestTemplate restTemplate = new RestTemplate();
 		StockPrice stockPriceMap = new StockPrice();
 		ListStocks listOfStocks = new ListStocks();
 		
-		HashMap<String,Double> listOfStockMap = new HashMap<String,Double>();
 		stockSymbols.stream().forEach(stockSymbol -> {
 			String stockLineOne = restTemplate
 					.getForObject("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="
@@ -41,9 +40,10 @@ public class StockApiDao {
 			HashMap<String, Double> stockPriceMapInsert = new HashMap<String, Double>();
 			stockPriceMapInsert.put(stockSymbol.toString(), stockPrice.latestStockPrice(response));
 			stockPriceMap.setPrice(stockPriceMapInsert);
-			//listOfStocks.setStockList(listOfStockMap.put(stockSymbol.toString(), stockPrice.latestStockPrice(response)));
-
+			ArrayList<StockPrice> stockList = new ArrayList<StockPrice>();
+			stockList.add(stockPriceMap);
+			listOfStocks.setStockList(stockList);
 		});
-		return stockPriceMap;
+		return listOfStocks;
 	}
 }
